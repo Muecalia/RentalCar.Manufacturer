@@ -1,18 +1,27 @@
-# Build and Release Folders
-bin-debug/
-bin-release/
-[Oo]bj/
-[Bb]in/
+# Diretórios e arquivos gerados pela build
+bin/
+obj/
+out/
 
-# Other files and folders
-.settings/
+# Arquivos de log
+*.log
 
-# Executables
-*.swf
-*.air
-*.ipa
-*.apk
+# Arquivos temporários
+*.tmp
+*.swp
 
-# Project files, i.e. `.project`, `.actionScriptProperties` and `.flexProperties`
-# should NOT be excluded as they contain compiler settings and other important
-# information for Eclipse / Flash Builder.
+# Arquivos de usuário do Visual Studio
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Arquivos de compilação
+*.dll
+*.exe
+*.pdb
+*.cache
+*.pdb
+*.rsp
+*.dmp

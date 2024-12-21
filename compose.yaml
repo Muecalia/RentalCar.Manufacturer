@@ -1,0 +1,30 @@
+﻿services:
+  manufacturer.api:
+    image: rentalcar.manufacturer.api
+    build:
+      context: .
+      dockerfile: RentalCar.Manufacturer.API/Dockerfile
+    container_name: manufacturer.api
+    depends_on:
+      - manufacturer.db
+    ports:
+      - "808:8080"
+      - "809:8081"
+    volumes:
+      - manufacturer_api_lLog:/logs
+  
+  manufacturer.db:
+    image: mysql:8.0.40
+    restart: on-failure
+    container_name: manufacturer.mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: Admin2k24@
+    ports:
+      - "3308:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+
+volumes:
+  manufacturer_api_lLog:
+  mysql_data:

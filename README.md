@@ -1,5 +1,5 @@
 # RentalCar.Manufacturer
-Microserviço para gestão de produto da loja de aluguer de carros.
+Microserviço para gestão de fabricantes da loja de aluguer de carros.
 
 # Language
 1. C#
@@ -20,9 +20,6 @@ Microserviço para gestão de produto da loja de aluguer de carros.
 # Container
 1. Docker
 2. docker-compose
-3. Requirements: Docker installed
-4. Run container: docker-compose up -d
-5. Down container: docker-compose down
 
 # Testes
 1. Unitario (Fluent Assertions)
@@ -37,9 +34,19 @@ Microserviço para gestão de produto da loja de aluguer de carros.
 # Logs
 1. Serilog
 
+# Observabilidade
+1. OpenTelemetry
+
 # Monitoramento
 1. Prometheus
 2. Grafana
 
 # Tracing 
 1. Jeager
+
+# Analise Código
+1. SonarQube
+
+# Migration
+dotnet ef migrations add FirstMigration --project RentalCar.Manufacturer.Infrastructure -o Persistence/Migrations -s RentalCar.Manufacturer.API
+dotnet ef database update --project RentalCar.Manufacturer.Infrastructure -s RentalCar.Manufacturer.API

@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using Microsoft.AspNetCore.Http;
 using RentalCar.Manufacturer.Application.Commands.Request;
 using RentalCar.Manufacturer.Application.Commands.Response;
 using RentalCar.Manufacturer.Core.Configs;
@@ -13,11 +14,13 @@ public class CreateManufacturerHandler : IRequestHandler<CreateManufacturerReque
 {
     private readonly IManufacturerRepository _repository;
     private readonly ILoggerService _loggerService;
+    private readonly IPrometheusService _prometheusService;
 
-    public CreateManufacturerHandler(IManufacturerRepository repository, ILoggerService loggerService)
+    public CreateManufacturerHandler(IManufacturerRepository repository, ILoggerService loggerService, IPrometheusService prometheusService)
     {
         _repository = repository;
         _loggerService = loggerService;
+        _prometheusService = prometheusService;
     }
 
     public async Task<ApiResponse<InputManufacturerResponse>> Handle(CreateManufacturerRequest request, CancellationToken cancellationToken)
@@ -29,6 +32,7 @@ public class CreateManufacturerHandler : IRequestHandler<CreateManufacturerReque
             if (await _repository.IsManufacturerExist(request.Name, cancellationToken))
             {
                 _loggerService.LogWarning(MessageError.Conflito($"{Objecto} {request.Name}"));
+                _prometheusService.AddNewManufacturerCounter(StatusCodes.Status409Conflict.ToString());
                 return ApiResponse<InputManufacturerResponse>.Error(MessageError.Conflito(Objecto));
             }
 
@@ -42,11 +46,12 @@ public class CreateManufacturerHandler : IRequestHandler<CreateManufacturerReque
             var manufacturer = await _repository.Create(newManufacturer, cancellationToken);
 
             var result = new InputManufacturerResponse(manufacturer.Id, manufacturer.Name);
-
+            _prometheusService.AddNewManufacturerCounter(StatusCodes.Status201Created.ToString());
             return ApiResponse<InputManufacturerResponse>.Success(result, MessageError.OperacaoSucesso(Objecto, Operacao));
         }
         catch (Exception ex)
         {
+            _prometheusService.AddNewManufacturerCounter(StatusCodes.Status400BadRequest.ToString());
             _loggerService.LogError(MessageError.OperacaoErro(Objecto, Operacao, ex.Message));
             return ApiResponse<InputManufacturerResponse>.Error(MessageError.OperacaoErro(Objecto, Operacao));
         }

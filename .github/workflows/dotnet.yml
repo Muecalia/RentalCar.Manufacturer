@@ -32,7 +32,7 @@ jobs:
       run: dotnet build ./RentalCar.Manufacturer.API/RentalCar.Manufacturer.API.csproj --no-restore
 
     - name: Build Unit Tests
-      run: dotnet build ./RentalCar.Manufacturer.API/RentalCar.Manufacturer.API.csproj --no-restore
+      run: dotnet build ./RentalCar.Manufacturer.UnitTest/RentalCar.Manufacturer.UnitTest.csproj --no-restore
       
     - name: Test
-      run: dotnet test ./RentalCar.Manufacturer.API/RentalCar.Manufacturer.API.csproj --no-build --verbosity normal
+      run: dotnet test ./RentalCar.Manufacturer.UnitTest/RentalCar.Manufacturer.UnitTest.csproj --no-build --verbosity normal

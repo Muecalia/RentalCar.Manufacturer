@@ -35,7 +35,6 @@ namespace RentalCar.Manufacturer.Infrastructure.Persistence.Migrations
 
                     b.Property<string>("Email")
                         .HasMaxLength(100)
-                        .IsUnicode(true)
                         .HasColumnType("varchar(100)");
 
                     b.Property<bool>("IsDeleted")
@@ -44,13 +43,11 @@ namespace RentalCar.Manufacturer.Infrastructure.Persistence.Migrations
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(50)
-                        .IsUnicode(true)
                         .HasColumnType("varchar(50)");
 
                     b.Property<string>("Phone")
                         .IsRequired()
                         .HasMaxLength(25)
-                        .IsUnicode(true)
                         .HasColumnType("varchar(25)");
 
                     b.Property<DateTime?>("UpdatedAt")

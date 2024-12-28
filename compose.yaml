@@ -1,6 +1,7 @@
 ﻿services:
   manufacturer.api:
     image: rentalcar.manufacturer.api
+    restart: always
     build:
       context: .
       dockerfile: RentalCar.Manufacturer.API/Dockerfile
@@ -15,7 +16,7 @@
   
   manufacturer.db:
     image: mysql:8.0.40
-    restart: on-failure
+    restart: always
     container_name: manufacturer.mysql
     environment:
       MYSQL_ROOT_PASSWORD: Admin2k24@

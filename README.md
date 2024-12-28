@@ -1,51 +1,52 @@
 # RentalCar.Manufacturer
 Microserviço para gestão de fabricantes da loja de aluguer de carros.
 
-# Language
-1. C#
+# Arquitectura do Projecto
+![Diagrama](https://github.com/user-attachments/assets/3f4e648a-f0dd-4e5f-b633-d5fdbe90098a)
 
-# Framework
-1. .NET CORE 8.0
+# Entities
+### Model
+| Type         | Variavel    | Descrition |
+|--------------|-------------|------------|
+| string       | Id          |            |
+| string       | Name        |            |
+| string       | Email       |            |
+| string       | Phone       |            |
+| DateTime     | CreatedAt   |            |
+| DateTime     | UpdatedAt   |            |
+| DateTime     | DeletedAt   |            |
+| bool         | IsDeleted   |            |
+<br/>
 
-# Data Base
-1. MySql
+# Auxiliary Projects
+| Project      | Link       | 
+|--------------|----------------------------------------------------|
+| Security     | https://github.com/Muecalia/RentalCar.Security     |
 
-# Arquitectura
-1. Arquitetura Limpa (Clean Architecture)
+<br/>
 
-# Padrões
-1. CQRS
-2. Repository
-
-# Container
-1. Docker
-2. docker-compose
-
-# Testes
-1. Unitario (Fluent Assertions)
-2. Integração
-
-# Messageria
-1. RabbitMq
-
-# CI/CD
-1.  GitHub Actions
-
-# Logs
-1. Serilog
-
-# Observabilidade
-1. OpenTelemetry
+# Linguagens, Ferramentas e Tecnologias
+<div align="left">
+  <p align="left">
+    <a href="https://go-skill-icons.vercel.app/">
+      <img src="https://go-skill-icons.vercel.app/api/icons?i=cs,dotnet,mysql,rabbitmq,git,kubernetes,docker,sonarqube,swagger,postman,githubactions,aws" />
+    </a>
+  </p>
+</div> <br/>
 
 # Monitoramento
-1. Prometheus
-2. Grafana
+<div align="left">
+  <p align="left">
+    <a href="https://go-skill-icons.vercel.app/">
+      <img src="https://go-skill-icons.vercel.app/api/icons?i=prometheus,grafana" />
+    </a>
+  </p>
+</div> <br/>
 
-# Tracing 
-1. Jeager
+# Observabilidade e Tracing
+![Jaeger_OpenTelemetry](https://github.com/user-attachments/assets/bac7e17b-c42c-48a8-83ab-c0c3c1b0f3dc)
 
-# Analise Código
-1. SonarQube
+<br/>
 
 # Migration
 dotnet ef migrations add FirstMigration --project RentalCar.Manufacturer.Infrastructure -o Persistence/Migrations -s RentalCar.Manufacturer.API

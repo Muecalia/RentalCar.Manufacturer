@@ -17,16 +17,13 @@ public class ManufacturerContext : DbContext
             
             e.Property<string>(c => c.Name)
                 .IsRequired()
-                .IsUnicode()
                 .HasMaxLength(50);
             
             e.Property<string>(c => c.Email)
-                .IsUnicode()
                 .HasMaxLength(100);
             
             e.Property<string>(c => c.Phone)
                 .IsRequired()
-                .IsUnicode()
                 .HasMaxLength(25);
             
             e.HasIndex(c => c.Name).IsUnique();

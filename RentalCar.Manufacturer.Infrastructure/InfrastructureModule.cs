@@ -17,7 +17,8 @@ public static class InfrastructureModule
     {
         services
             .AddServices()
-            .AddOpenTelemetryConfig();
+            .AddOpenTelemetryConfig()
+            ;
         return services;
     }
 

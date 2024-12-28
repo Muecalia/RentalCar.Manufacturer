@@ -2,15 +2,12 @@ namespace RentalCar.Manufacturer.Core.MessageBus;
 
 public class RabbitQueue
 {
-    //ACCOUNT
-    public static string NEW_ACCOUNT_QUEUE = "NewAccountQueue";
-    public static string UPDATE_ACCOUNT_QUEUE = "UpdateAccountQueue";
-    public static string UPDATE_STATUS_ACCOUNT_QUEUE = "UpdateStatusAccountQueue";
-
-    //CLIENT
-    public static string NEW_CLIENT_QUEUE = "NewClienttQueue";
-    public static string UPDATE_CLIENT_QUEUE = "UpdateClienttQueue";
+    public static string MANUFACTURER_MODEL_NEW_REQUEST_QUEUE = "ManufacturerModelNewRequestQueue";
+    public static string MANUFACTURER_MODEL_NEW_RESPONSE_QUEUE = "ManufacturerModelNewResponseQueue";
     
-    public static string CLIENT_REQUEST_QUEUE = "ClientRequestQueue";
-    public static string CLIENT_RESPONSE_QUEUE = "ClientResponseQueue";
+    public static string MANUFACTURER_MODEL_FIND_REQUEST_QUEUE = "ManufacturerModelFindRequestQueue";
+    public static string MANUFACTURER_MODEL_FIND_RESPONSE_QUEUE = "ManufacturerModelFindResponseQueue";
+    
+    public static string MANUFACTURER_MODEL_UPDATE_REQUEST_QUEUE = "ManufacturerModelUpdateRequestQueue";
+    public static string MANUFACTURER_MODEL_UPDATE_RESPONSE_QUEUE = "ManufacturerModelUpdateResponseQueue";
 }

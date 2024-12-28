@@ -12,7 +12,7 @@ using RentalCar.Manufacturer.Infrastructure.Persistence;
 namespace RentalCar.Manufacturer.Infrastructure.Persistence.Migrations
 {
     [DbContext(typeof(ManufacturerContext))]
-    [Migration("20241221161832_FirstMigration")]
+    [Migration("20241226104047_FirstMigration")]
     partial class FirstMigration
     {
         /// <inheritdoc />
@@ -38,7 +38,6 @@ namespace RentalCar.Manufacturer.Infrastructure.Persistence.Migrations
 
                     b.Property<string>("Email")
                         .HasMaxLength(100)
-                        .IsUnicode(true)
                         .HasColumnType("varchar(100)");
 
                     b.Property<bool>("IsDeleted")
@@ -47,13 +46,11 @@ namespace RentalCar.Manufacturer.Infrastructure.Persistence.Migrations
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(50)
-                        .IsUnicode(true)
                         .HasColumnType("varchar(50)");
 
                     b.Property<string>("Phone")
                         .IsRequired()
                         .HasMaxLength(25)
-                        .IsUnicode(true)
                         .HasColumnType("varchar(25)");
 
                     b.Property<DateTime?>("UpdatedAt")

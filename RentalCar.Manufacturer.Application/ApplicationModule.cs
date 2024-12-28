@@ -2,6 +2,7 @@
 using FluentValidation.AspNetCore;
 using Microsoft.Extensions.DependencyInjection;
 using RentalCar.Manufacturer.Application.Handlers;
+using RentalCar.Manufacturer.Application.Services;
 using RentalCar.Manufacturer.Application.Validators;
 
 namespace RentalCar.Manufacturer.Application;
@@ -12,7 +13,8 @@ public static class ApplicationModule
     {
         services
             .AddFluentValidation()
-            .AddHandlers();
+            .AddHandlers()
+            .AddBackgroundService();
         return services;
     }
 
@@ -29,6 +31,13 @@ public static class ApplicationModule
     {
         services.AddMediatR(config => config.RegisterServicesFromAssemblyContaining<CreateManufacturerHandler>());
 
+        return services;
+    }
+    
+    private static IServiceCollection AddBackgroundService(this IServiceCollection services)
+    {
+        services.AddHostedService<ManufacturerService>();
+        services.AddHostedService<FindManufacturerService>();
         return services;
     }
 

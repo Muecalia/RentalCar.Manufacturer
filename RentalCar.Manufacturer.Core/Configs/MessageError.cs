@@ -11,10 +11,6 @@ public class MessageError
     {
         return $"{entidade} com a chave {key} não encontrado";
     }
-    public static string NotFoundEmail(string entidade, string email)
-    {
-        return $"{entidade} com o e-mail {email} não encontrado";
-    }
 
     //LISTAR
     public static string CarregamentoSucesso(string entidade)
